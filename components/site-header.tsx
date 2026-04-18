@@ -55,6 +55,7 @@ export function SiteHeader() {
             alt="OBED Coin"
             width={140}
             height={140}
+            className="w-auto h-auto"
           />
         </a>
 

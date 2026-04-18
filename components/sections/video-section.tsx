@@ -163,12 +163,12 @@ export function VideoSection() {
                 </div>
               </button>
             ) : (
-              <video
+              <iframe
                 className="absolute inset-0 w-full h-full"
-                src="/OBED_COIN.mp4"
-                autoPlay
-                controls
-                playsInline
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                title="OBED Coin Official Video"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
               />
             )}
           </div>

@@ -5,57 +5,11 @@ import Image from "next/image";
 import { useGsap, gsap } from "@/hooks/use-gsap";
 
 export function Hero() {
-  const rootRef = useRef<HTMLElement | null>(null);
-
-  useGsap(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from("[data-hero='badge']", { y: 20, opacity: 0, duration: 0.7 })
-      .from(
-        "[data-hero='title-1']",
-        { y: 40, opacity: 0, duration: 0.9 },
-        "-=0.4",
-      )
-      .from(
-        "[data-hero='title-2']",
-        { y: 40, opacity: 0, duration: 0.9 },
-        "-=0.6",
-      )
-      .from(
-        "[data-hero='subtitle']",
-        { y: 20, opacity: 0, duration: 0.7 },
-        "-=0.5",
-      )
-      .from(
-        "[data-hero='cta']",
-        { y: 20, opacity: 0, duration: 0.6, stagger: 0.1 },
-        "-=0.4",
-      )
-      .from(
-        "[data-hero='coin']",
-        { scale: 0.85, opacity: 0, duration: 1.2, ease: "power4.out" },
-        "-=1.2",
-      );
-
-    // Subtle parallax on the coin with mouse
-    const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      gsap.to("[data-hero='coin-inner']", {
-        x,
-        y,
-        duration: 1,
-        ease: "power2.out",
-      });
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-
   return (
     <section
-      ref={rootRef}
+      // ref={rootRef}
       id="top"
-      className="relative w-full  overflow-hidden py-28 md:py-36 pb-16 md:pb-12"
+      className="relative w-full  bg-[##0B0F19] overflow-hidden py-28 md:py-36 pb-16 md:pb-12"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
         <div className="relative ">
