@@ -32,7 +32,7 @@ export function Hero() {
             </span>
             <span
               data-hero="title-2"
-              className="block relative -left-3 md:-left-3 text-right text-[#0AF] drop-shadow-[0_0_5px_rgba(0,163,255,0.6)] text-4xl md:text-5xl lg:text-[64px] font-extrabold leading-none "
+              className="block relative -left-3 md:-left-3 text-right text-[#0AF] drop-shadow-[0_0_5px_rgba(0,163,255,0.6)] text-4xl md:text-5xl lg:text-[68px] font-extrabold leading-none "
             >
               Always Protected
             </span>
@@ -84,7 +84,7 @@ export function Hero() {
         >
           <div data-hero="coin-inner" className="relative w-full h-full">
             <Image
-              src="/hero_image_right.png"
+              src="/header_bo.png"
               alt="Glowing OBED cryptocurrency coin with holographic binary code beam"
               fill
               priority

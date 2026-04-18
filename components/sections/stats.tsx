@@ -50,9 +50,37 @@ export function Stats() {
 
   return (
     <section ref={rootRef} className="relative px-4 md:px-6 py-8 md:py-12">
-      <div className="mx-auto max-w-6xl">
-        <div className="relative rounded-[36px] bg-card overflow-hidden border border-[#61A6D9]">
-          <div className="absolute -top-[18px] md:-top-[22px] left-0 w-full flex justify-center pointer-events-none">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative rounded-[36px] overflow-hidden border border-[#61A6D9]">
+          {/* Aurora Waves Pattern */}
+          <style>{`
+            @keyframes aurora {
+              0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+              50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+              100% { transform: scale(1) rotate(360deg); opacity: 0.5; }
+            }
+          `}</style>
+          <div
+            className="absolute z-0 w-[200%] h-[200%] -left-[50%] -top-[50%]"
+            style={{
+              background: `linear-gradient(45deg, #1a1a1a 0%, #003366 100%),
+                repeating-linear-gradient(
+                  45deg,
+                  rgba(0, 255, 255, 0.1) 0px,
+                  rgba(0, 255, 255, 0.1) 20px,
+                  rgba(0, 255, 0, 0.1) 20px,
+                  rgba(0, 255, 0, 0.1) 40px
+                ),
+                radial-gradient(
+                  circle at 50% 50%,
+                  rgba(32, 196, 232, 0.3) 0%,
+                  rgba(76, 201, 240, 0.1) 100%
+                )`,
+              backgroundBlendMode: "normal, overlay, overlay",
+              animation: "aurora 8s linear infinite",
+            }}
+          />
+          <div className="absolute -top-[18px] md:-top-[22px] left-0 w-full flex justify-center pointer-events-none z-10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1100"
@@ -105,7 +133,7 @@ export function Stats() {
           </div>
 
           {/* Bottom symmetrical SVG */}
-          <div className="absolute -bottom-[18px] md:-bottom-[22px] left-0 w-full flex justify-center pointer-events-none rotate-180">
+          <div className="absolute -bottom-[18px] md:-bottom-[22px] left-0 w-full flex justify-center pointer-events-none rotate-180 z-10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1100"

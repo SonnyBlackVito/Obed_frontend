@@ -67,47 +67,56 @@ export function StaySystem() {
     <section
       ref={rootRef}
       id="stay-system"
-      className="relative px-4 md:px-6 py-20 md:py-28"
+      className="relative  px-4 md:px-6 py-20 md:py-28 overflow-hidden"
     >
-      <div className="mx-auto max-w-6xl">
-        <div
-          data-stay="heading"
-          className="text-center max-w-4xl mx-auto flex flex-col items-center"
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-60 mix-blend-lighten"
+        style={{
+          backgroundImage: "url('/background_image.png')",
+          maskImage:
+            "radial-gradient(circle at center, black 30%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(circle at center, black 50%, transparent 100%)",
+        }}
+      />
+      <div
+        data-stay="heading"
+        className="text-center drop-shadow-[0_0_6px_rgba(255,255,255,0.4)] max-w-6xl mx-auto flex flex-col items-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="99"
+          height="6"
+          viewBox="0 0 99 6"
+          fill="none"
+          className="mb-3"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="99"
-            height="6"
-            viewBox="0 0 99 6"
-            fill="none"
-            className="mb-3"
-          >
-            <path
-              d="M3 3H96"
-              stroke="#5DA2D6"
-              strokeWidth="6"
-              strokeLinecap="round"
-            />
-          </svg>
+          <path
+            d="M3 3H96"
+            stroke="#5DA2D6"
+            strokeWidth="6"
+            strokeLinecap="round"
+          />
+        </svg>
 
-          <span className="text-2xl font-extrabold leading-[34px]  text-[#61A6D9]  uppercase">
-            Core Mechanism
-          </span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-white text-balance">
-            OBED Stay — Minimum Value Guarantee
-          </h2>
-          <p className="mt-5 text-[#8B8BA2] text-sm md:text-[16px] leading-[26px] max-w-3xl mx-auto">
-            Even when the market price drops, the{" "}
-            <span className="text-[#61A6D9] font-medium">
-              Stay Price (minimum exchange value)
-            </span>{" "}
-            protects your coin&apos;s value at checkout.
-            <br className="hidden md:block" />
-            Market price applies when higher, Stay Price when lower — always in
-            the consumer&apos;s favor.
-          </p>
-        </div>
+        <span className="text-2xl font-extrabold drop-shadow-[0_0_5px_rgba(255,255,255,0.2)] text-[#5DA2D6] uppercase">
+          Core Mechanism
+        </span>
+        <h1 className="mt-4 text-4xl md:text-5xl text-white text-center font-inter font-extrabold self-stretch leading-tight md:whitespace-nowrap">
+          OBED Stay — Minimum Value Guarantee
+        </h1>
+        <p className="mt-5 text-[#8B8BA2] text-lg md:text-[20px] font-normal leading-[28px] w-full max-w-none mx-auto">
+          Even when the market price drops, the{" "}
+          <span className="bg-gradient-to-r from-[#61A6D9] to-[#2567A5] text-transparent bg-clip-text font-extrabold">
+            Stay Price (minimum exchange value)
+          </span>{" "}
+          protects your coin&apos;s value at checkout. Market price applies when
+          higher, Stay Price when lower — always in the consumer&apos;s favor.
+        </p>
+      </div>
 
+      <div className="mx-auto max-w-7xl relative z-10">
         {/* Logic box */}
         <div
           data-stay="logic"
