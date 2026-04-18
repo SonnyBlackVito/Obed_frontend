@@ -69,10 +69,7 @@ export function StaySystem() {
       id="stay-system"
       className="relative px-4 md:px-6 py-20 md:py-28 overflow-hidden"
     >
-      <div
-        data-stay="heading"
-        className="text-center mb-5 md:mb-20 py-10 drop-shadow-[0_0_6px_rgba(255,255,255,0.4)] max-w-6xl mx-auto flex flex-col items-center"
-      >
+      <div className="relative z-10 -mt-10 md:-mt-20 text-center drop-shadow-[0_0_6px_rgba(255,255,255,0.4)] max-w-6xl mx-auto flex flex-col items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="99"
@@ -92,6 +89,12 @@ export function StaySystem() {
         <span className="text-2xl font-extrabold drop-shadow-[0_0_5px_rgba(255,255,255,0.2)] text-[#5DA2D6] uppercase">
           Core Mechanism
         </span>
+      </div>
+
+      <div
+        data-stay="heading"
+        className="relative z-10 text-center mb-5 md:mb-20 pb-10 drop-shadow-[0_0_6px_rgba(255,255,255,0.4)] max-w-6xl mx-auto flex flex-col items-center"
+      >
         <h1 className="mt-4 text-4xl md:text-5xl text-white text-center font-inter font-extrabold self-stretch leading-tight md:whitespace-nowrap">
           OBED Stay — Minimum Value Guarantee
         </h1>
