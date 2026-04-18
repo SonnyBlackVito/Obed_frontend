@@ -67,22 +67,11 @@ export function StaySystem() {
     <section
       ref={rootRef}
       id="stay-system"
-      className="relative  px-4 md:px-6 py-20 md:py-28 overflow-hidden"
+      className="relative px-4 md:px-6 py-20 md:py-28 overflow-hidden"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-60 mix-blend-lighten"
-        style={{
-          backgroundImage: "url('/background_image.png')",
-          maskImage:
-            "radial-gradient(circle at center, black 30%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(circle at center, black 50%, transparent 100%)",
-        }}
-      />
       <div
         data-stay="heading"
-        className="text-center drop-shadow-[0_0_6px_rgba(255,255,255,0.4)] max-w-6xl mx-auto flex flex-col items-center"
+        className="text-center mb-5 md:mb-20 py-10 drop-shadow-[0_0_6px_rgba(255,255,255,0.4)] max-w-6xl mx-auto flex flex-col items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -116,14 +105,26 @@ export function StaySystem() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-7xl relative z-10">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-60 mix-blend-lighten"
+        style={{
+          backgroundImage: "url('/background_image.png')",
+          maskImage:
+            "radial-gradient(circle at center, black 30%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(circle at center, black 50%, transparent 100%)",
+        }}
+      />
+
+      <div className="mx-auto max-w-6xl relative z-10">
         {/* Logic box */}
         <div
           data-stay="logic"
-          className="mt-14 relative rounded-[24px] border border-[#333] p-8 md:p-10"
+          className="mt-14 bg-[#15181B] relative rounded-[24px] border border-[#61A6D9] p-8 md:p-10"
         >
           <div className="flex items-center justify-center gap-2 mb-8 text-white font-bold text-lg md:text-xl">
-            <ScaleIcon className="w-5 h-5 text-[#fff]" />
+            <ScaleIcon className="w-5 h-5 text-white" />
             Stay Logic
           </div>
 
@@ -178,7 +179,8 @@ export function StaySystem() {
             <div
               key={title}
               data-stay="feature"
-              className="relative rounded-2xl border border-[#333] bg-gradient-to-br from-[#122A40]/50 to-[#0E1520] p-6 hover:border-[#61A6D9]/50 transition-colors"
+              // bg-gradient-to-br from-[#122A40]/50 to-[#0E1520]
+              className="relative rounded-2xl border border-[#333] bg-[#15181B]  p-6 hover:border-[#61A6D9]/50 transition-colors"
             >
               <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#333] text-[#61A6D9] mb-5">
                 <Icon className="w-5 h-5" />
@@ -212,15 +214,15 @@ function CaseCard({
   return (
     <div
       data-stay="case"
-      className={`relative rounded-2xl p-6 border border-[#222] bg-[#192430] border-l-[4px] ${borderColor}`}
+      className={`relative h-[204px] rounded-2xl p-6 border border-[#222] bg-[#192430] border-l-[4px] ${borderColor}`}
     >
-      <div className="text-[11px] md:text-[12px] tracking-wider text-[#8B8BA2] font-medium uppercase mb-3">
+      <div className="text-[11px] md:text-[20px] tracking-wider text-[#8B8BA2] font-medium uppercase mb-3">
         {label}
       </div>
-      <div className="text-[17px] md:text-[18px] font-bold text-white mb-2">
+      <div className="text-[17px] md:text-[20px] font-bold text-white mb-2">
         {badge}
       </div>
-      <div className="text-[14px] md:text-[15px] text-[#8B8BA2]">{detail}</div>
+      <div className="text-[14px] md:text-[20px] text-[#8B8BA2]">{detail}</div>
     </div>
   );
 }
