@@ -1,75 +1,84 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import { useGsap, gsap } from "@/hooks/use-gsap"
+import { useRef } from "react";
+import Image from "next/image";
+import { useGsap, gsap } from "@/hooks/use-gsap";
 
 export function Hero() {
-  const rootRef = useRef<HTMLElement | null>(null)
+  const rootRef = useRef<HTMLElement | null>(null);
 
   useGsap(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.from("[data-hero='badge']", { y: 20, opacity: 0, duration: 0.7 })
-      .from("[data-hero='title-1']", { y: 40, opacity: 0, duration: 0.9 }, "-=0.4")
-      .from("[data-hero='title-2']", { y: 40, opacity: 0, duration: 0.9 }, "-=0.6")
-      .from("[data-hero='subtitle']", { y: 20, opacity: 0, duration: 0.7 }, "-=0.5")
-      .from("[data-hero='cta']", { y: 20, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.4")
+      .from(
+        "[data-hero='title-1']",
+        { y: 40, opacity: 0, duration: 0.9 },
+        "-=0.4",
+      )
+      .from(
+        "[data-hero='title-2']",
+        { y: 40, opacity: 0, duration: 0.9 },
+        "-=0.6",
+      )
+      .from(
+        "[data-hero='subtitle']",
+        { y: 20, opacity: 0, duration: 0.7 },
+        "-=0.5",
+      )
+      .from(
+        "[data-hero='cta']",
+        { y: 20, opacity: 0, duration: 0.6, stagger: 0.1 },
+        "-=0.4",
+      )
       .from(
         "[data-hero='coin']",
         { scale: 0.85, opacity: 0, duration: 1.2, ease: "power4.out" },
         "-=1.2",
-      )
+      );
 
     // Subtle parallax on the coin with mouse
     const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20
-      const y = (e.clientY / window.innerHeight - 0.5) * 20
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
       gsap.to("[data-hero='coin-inner']", {
         x,
         y,
         duration: 1,
         ease: "power2.out",
-      })
-    }
-    window.addEventListener("mousemove", onMove)
-    return () => window.removeEventListener("mousemove", onMove)
-  }, [])
+      });
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
 
   return (
     <section
       ref={rootRef}
       id="top"
-      className="relative overflow-hidden pt-28 md:pt-32 pb-16 md:pb-24"
+      className="relative w-full  overflow-hidden py-28 md:py-36 pb-16 md:pb-12"
     >
-      {/* Ambient background */}
-      <div className="absolute inset-0 -z-10 bg-radial-cyan opacity-60" />
-      <div className="absolute inset-0 -z-10 bg-grid opacity-[0.15]" />
-      <div
-        aria-hidden
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full -z-10"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(0,178,255,0.18), rgba(0,178,255,0) 70%)",
-        }}
-      />
-
-      <div className="mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-2 gap-10 lg:gap-6 items-center">
-        <div className="relative">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="relative ">
           <div
             data-hero="badge"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-xs md:text-sm text-foreground"
+            className="w-fit mb-8 h-auto min-h-[36px] px-4 md:px-6 flex mx-auto items-center gap-[8px] py-[6px] rounded-full bg-[#192430] border-[1.5px] border-[#61A6D9] text-white text-center text-[12px] md:text-[14px] font-semibold leading-normal md:leading-[24px]"
           >
-            <span className="inline-block w-2 h-2 rounded-full bg-primary shadow-glow-cyan" />
-            Payment Utility Token · Real World
+            <div>
+              <span className="text-xl mr-1">⬡</span>
+              Payment Utility Token · Real World
+            </div>
           </div>
 
-          <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-balance">
-            <span data-hero="title-1" className="block text-foreground">
+          <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-balance ">
+            <span
+              data-hero="title-1"
+              className="block text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)] font-extrabold leading-none tracking-[0.64px] text-4xl md:text-5xl lg:text-[64px] text-center"
+            >
               Your Coin&apos;s Value,
             </span>
             <span
               data-hero="title-2"
-              className="block text-primary text-glow-cyan"
+              className="block relative -left-3 md:-left-3 text-right text-[#0AF] drop-shadow-[0_0_5px_rgba(0,163,255,0.6)] text-4xl md:text-5xl lg:text-[64px] font-extrabold leading-none "
             >
               Always Protected
             </span>
@@ -77,79 +86,59 @@ export function Hero() {
 
           <p
             data-hero="subtitle"
-            className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed"
+            className="mt-6 mx-auto text-center  font-inter text-[14px] font-normal leading-[24px] text-base md:text-lg text-muted-foreground max-w-xl "
           >
-            Even when the market price drops, the Stay Price (minimum exchange value) protects your
-            coin&apos;s value at checkout — E-Commerce · Dermatology · Daily Payments, all with
-            OBED Coin.
+            E-Commerce · Dermatology · Daily Payments — All with OBED Coin
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div className="mt-14 flex flex-col sm:flex-row gap-[10px] font-inter justify-center items-center w-full max-w-sm sm:max-w-none mx-auto">
             <a
               data-hero="cta"
               href="#stay-system"
-              className="group relative inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-primary-foreground overflow-hidden shadow-glow-cyan"
+              className="group relative w-full sm:w-[309px] flex items-center justify-center gap-[10px] px-[32px] py-[16px] rounded-full font-semibold text-primary-foreground overflow-hidden"
               style={{
-                background:
-                  "linear-gradient(90deg, #00b2ff 0%, #22d3ee 100%)",
+                background: "linear-gradient(90deg, #0AF 0%, #00C9D7 100%)",
               }}
             >
-              <span className="relative z-10">Explore Stay System</span>
+              <span className="relative text-white font-normal leading-[24px] text-[16px] md:text-[18px] z-10">
+                Explore Stay System
+              </span>
               <span
                 aria-hidden
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
                 style={{
-                  background:
-                    "linear-gradient(90deg, #22d3ee 0%, #00b2ff 100%)",
+                  background: "linear-gradient(90deg, #00C9D7 0%, #0AF 100%)",
                 }}
               />
             </a>
             <a
               data-hero="cta"
               href="#use-cases"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold bg-card border border-border text-foreground hover:border-primary/60 transition-colors"
+              className="group w-full sm:w-[309px] flex items-center justify-center gap-[10px] px-[32px] py-[16px] rounded-full font-semibold bg-card border border-solid border-[#8B8BA2] text-foreground hover:border-primary/60 transition-colors"
             >
-              See Use Cases
+              <span className="relative text-white font-normal leading-[24px] text-[16px] md:text-[18px] z-10">
+                See Use Cases
+              </span>
             </a>
           </div>
         </div>
 
         {/* Coin illustration */}
-        <div data-hero="coin" className="relative aspect-square max-w-[560px] mx-auto w-full">
+        <div
+          data-hero="coin"
+          className="relative aspect-square max-w-[560px] mx-auto w-full"
+        >
           <div data-hero="coin-inner" className="relative w-full h-full">
-            {/* Pulsing rings */}
-            <div
-              aria-hidden
-              className="absolute inset-[28%] rounded-full border border-primary/40 animate-pulse-ring"
-            />
-            <div
-              aria-hidden
-              className="absolute inset-[28%] rounded-full border border-primary/30 animate-pulse-ring"
-              style={{ animationDelay: "1s" }}
-            />
-
-            <div className="absolute inset-0 animate-float-coin">
-              <Image
-                src="/obed-coin.jpg"
-                alt="Glowing OBED cryptocurrency coin with holographic binary code beam"
-                fill
-                priority
-                className="object-contain"
-              />
-            </div>
-
-            {/* Glow under coin */}
-            <div
-              aria-hidden
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-2/3 h-16 rounded-full blur-2xl"
-              style={{
-                background:
-                  "radial-gradient(closest-side, rgba(0,178,255,0.55), transparent)",
-              }}
+            <Image
+              src="/hero_image_right.png"
+              alt="Glowing OBED cryptocurrency coin with holographic binary code beam"
+              fill
+              priority
+              className="object-contain"
             />
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

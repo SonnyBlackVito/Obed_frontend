@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import Image from "next/image"
-import { useGsap, gsap } from "@/hooks/use-gsap"
+import { useRef, useState } from "react";
+import Image from "next/image";
+import { useGsap, gsap } from "@/hooks/use-gsap";
 
 export function VideoSection() {
-  const rootRef = useRef<HTMLElement | null>(null)
-  const [playing, setPlaying] = useState(false)
+  const rootRef = useRef<HTMLElement | null>(null);
+  const [playing, setPlaying] = useState(false);
 
   useGsap(() => {
     gsap.from("[data-video-title]", {
@@ -15,7 +15,7 @@ export function VideoSection() {
       duration: 0.8,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 80%" },
-    })
+    });
     gsap.from("[data-video-frame]", {
       y: 60,
       opacity: 0,
@@ -23,13 +23,13 @@ export function VideoSection() {
       duration: 1,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 75%" },
-    })
+    });
     gsap.from("[data-video-stage]", {
       opacity: 0,
       duration: 1.4,
       ease: "power2.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 75%" },
-    })
+    });
     gsap.from("[data-video-beam]", {
       opacity: 0,
       scaleY: 0.6,
@@ -37,8 +37,8 @@ export function VideoSection() {
       duration: 1.6,
       ease: "power2.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 75%" },
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <section
@@ -152,24 +152,28 @@ export function VideoSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 <div className="absolute inset-0 grid place-items-center">
                   <span className="w-20 h-20 rounded-full grid place-items-center bg-primary text-primary-foreground shadow-glow-cyan-lg transition-transform group-hover:scale-110">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 ml-1">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-8 h-8 ml-1"
+                    >
                       <path d="M8 5v14l11-7L8 5Z" />
                     </svg>
                   </span>
                 </div>
               </button>
             ) : (
-              <iframe
+              <video
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="OBED Coin Official Video"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
+                src="/OBED_COIN.mp4"
+                autoPlay
+                controls
+                playsInline
               />
             )}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
