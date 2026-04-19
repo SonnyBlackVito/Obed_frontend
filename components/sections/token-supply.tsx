@@ -2,37 +2,13 @@
 
 import { useRef } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
+import { useLanguage } from "@/lib/i18n";
 
-type Slice = {
-  label: string;
-  value: number;
-  color: string;
-  description: string;
-};
-
-const SLICES: Slice[] = [
-  {
-    label: "25% Title",
-    value: 25,
-    color: "#00b2ff",
-    description: "Coins are never used below the announced Stay Price.",
-  },
-  {
-    label: "40% Title",
-    value: 40,
-    color: "#2563eb",
-    description: "Coins are never used below the announced Stay Price.",
-  },
-  {
-    label: "35% Title",
-    value: 35,
-    color: "#6b7280",
-    description: "Coins are never used below the announced Stay Price.",
-  },
-];
+const SLICE_COLORS = ["#00b2ff", "#2563eb", "#6b7280"];
 
 export function TokenSupply() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-supply='text'] > *", {
@@ -112,25 +88,25 @@ export function TokenSupply() {
 
           <div className="mt-5 text-center">
             <span className="text-xs md:text-sm tracking-[0.28em] text-primary font-bold">
-              TOKENOMICS
+              {t.tokenSupply.sectionLabel}
             </span>
             <h2 className="mt-6 text-4xl md:text-5xl font-bold text-foreground text-balance">
-              Big title
+              {t.tokenSupply.heading}
             </h2>
             <p className="mt-4 text-muted-foreground text-base md:text-lg">
-              bodytext
+              {t.tokenSupply.description}
             </p>
           </div>
 
           <ul className="mt-10 space-y-7">
-            {SLICES.map((s) => (
+            {t.tokenSupply.slices.map((s, i) => (
               <li key={s.label} className="flex items-start gap-4">
                 <span
                   aria-hidden
                   className="mt-1 inline-block w-1.5 h-7 rounded-full shrink-0"
                   style={{
-                    backgroundColor: s.color,
-                    boxShadow: `0 0 12px ${s.color}80`,
+                    backgroundColor: SLICE_COLORS[i],
+                    boxShadow: `0 0 12px ${SLICE_COLORS[i]}80`,
                   }}
                 />
                 <div className="flex-1">
@@ -207,10 +183,10 @@ export function TokenSupply() {
             >
               <div className="bg-background mx-auto justify-center flex flex-col w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[260px] lg:h-[260px] rounded-xl md:rounded-2xl px-4 py-4 sm:px-6 sm:py-5 md:px-8 md:py-7 lg:px-10 lg:py-8 text-center shadow-2xl border border-border/50">
                 <div className="text-[8px] sm:text-[10px] md:text-xs lg:text-xl font-normal text-[#8B8BA2]  whitespace-nowrap">
-                  TOTAL SUPPLY
+                  {t.tokenSupply.totalSupply}
                 </div>
                 <div className="mt-1 sm:mt-2 font-inter text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-foreground whitespace-nowrap">
-                  1.0 Billion
+                  {t.tokenSupply.totalValue}
                 </div>
               </div>
             </div>

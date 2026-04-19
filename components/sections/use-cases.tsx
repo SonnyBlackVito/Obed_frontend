@@ -2,9 +2,11 @@
 
 import { useRef } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
+import { useLanguage } from "@/lib/i18n";
 
 export function UseCases() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-uc='heading'] > *", {
@@ -24,6 +26,11 @@ export function UseCases() {
       scrollTrigger: { trigger: "[data-uc='cards']", start: "top 80%" },
     });
   }, []);
+
+  const ICONS = [
+    <CartIcon key="cart" className="w-6 h-6" />,
+    <StethoscopeIcon key="steth" className="w-6 h-6" />,
+  ];
 
   return (
     <section
@@ -52,18 +59,17 @@ export function UseCases() {
           />
         </svg>
         <span className="text-xs drop-shadow-[0_0_5px_rgba(93,162,214,0.4)] tracking-[0.2em] text-[#5DA2D6] font-extrabold uppercase">
-          USE CASES
+          {t.useCases.sectionLabel}
         </span>
       </div>
 
       <div className="mx-auto max-w-6xl">
         <div data-uc="heading" className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Use OBED Coin Anywhere
+            {t.useCases.heading}
           </h2>
           <p className="mt-5 text-[#8B8BA2] text-[15px] md:text-[18px]">
-            From online shopping to offline clinic visits — OBED Coin is part of
-            your daily life.
+            {t.useCases.description}
           </p>
         </div>
 
@@ -71,18 +77,15 @@ export function UseCases() {
           data-uc="cards"
           className="mt-16 md:mt-20 grid md:grid-cols-2 gap-6"
         >
-          <UseCaseCard
-            icon={<CartIcon className="w-6 h-6" />}
-            title="E-Commerce Shopping Mall"
-            description="Shop across 140,000+ products with OBED Coin. Stay Price applies automatically, plus up to 50% discount."
-            chips={["140K+ Products", "Up to 50% Off", "Real-time Pay"]}
-          />
-          <UseCaseCard
-            icon={<StethoscopeIcon className="w-6 h-6" />}
-            title="250+ Partner Dermatology Clinics"
-            description="Pay for laser treatments, Botox, fillers and skin care at 250+ clinics nationwide with real-time POS integration."
-            chips={["Laser Up to 50%", "Botox 25%+", "QR Payment"]}
-          />
+          {t.useCases.cards.map((card, i) => (
+            <UseCaseCard
+              key={card.title}
+              icon={ICONS[i]}
+              title={card.title}
+              description={card.description}
+              chips={[...card.chips]}
+            />
+          ))}
         </div>
       </div>
     </section>

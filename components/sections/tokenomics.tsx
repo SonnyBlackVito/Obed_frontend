@@ -2,9 +2,11 @@
 
 import { useRef } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
+import { useLanguage } from "@/lib/i18n";
 
 export function Tokenomics() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-tok='heading'] > *", {
@@ -48,18 +50,17 @@ export function Tokenomics() {
           />
         </svg>
         <span className="text-xs drop-shadow-[0_0_5px_rgba(93,162,214,0.4)] tracking-[0.2em] text-[#5DA2D6] font-extrabold uppercase">
-          TOKENOMICS
+          {t.tokenomics.sectionLabel}
         </span>
       </div>
 
       <div className="mx-auto max-w-6xl relative z-10">
         <div data-tok="heading" className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Sustainable Token Economy
+            {t.tokenomics.heading}
           </h2>
           <p className="mt-5 text-[#8B8BA2] text-[15px] md:text-[18px]">
-            OBED Coin is built on a stable token economy centered around the
-            Reserve Fund.
+            {t.tokenomics.description}
           </p>
         </div>
 
@@ -75,14 +76,13 @@ export function Tokenomics() {
             }}
           >
             <div className="text-6xl md:text-7xl font-extrabold text-[#00A3FF] drop-shadow-[0_0_15px_rgba(0,163,255,0.4)]">
-              5%
+              {t.tokenomics.reservePercent}
             </div>
             <div className="mt-4 text-[18px] md:text-[20px] font-bold text-white">
-              Reserve Fund
+              {t.tokenomics.reserveTitle}
             </div>
             <p className="mt-4 text-[14px] md:text-[15px] text-[#8B8BA2] leading-relaxed max-w-[400px]">
-              5% of total supply is managed as a reserve fund for Stay Price
-              maintenance and price stabilization.
+              {t.tokenomics.reserveDesc}
             </p>
           </Card>
 
@@ -94,14 +94,13 @@ export function Tokenomics() {
             }}
           >
             <div className="text-5xl md:text-7xl font-extrabold text-[#00A3FF] drop-shadow-[0_0_15px_rgba(0,163,255,0.4)]">
-              Monthly
+              {t.tokenomics.reviewLabel}
             </div>
             <div className="mt-4 text-[18px] md:text-[20px] font-bold text-white">
-              Stay Price Review
+              {t.tokenomics.reviewTitle}
             </div>
             <p className="mt-4 text-[14px] md:text-[15px] text-[#8B8BA2] leading-relaxed max-w-[280px]">
-              The committee reviews and publishes the Stay Price monthly based
-              on market data.
+              {t.tokenomics.reviewDesc}
             </p>
           </Card>
 
@@ -113,14 +112,13 @@ export function Tokenomics() {
             }}
           >
             <div className="text-4xl md:text-5xl font-extrabold text-[#00A3FF] drop-shadow-[0_0_15px_rgba(0,163,255,0.4)]">
-              글로벌 거래소
+              {t.tokenomics.exchangeLabel}
             </div>
             <div className="mt-4 text-[18px] md:text-[20px] font-bold text-white">
-              Exchange Listed
+              {t.tokenomics.exchangeTitle}
             </div>
             <p className="mt-4 text-[14px] md:text-[15px] text-[#8B8BA2] leading-relaxed max-w-[260px]">
-              Listed on a global cryptocurrency exchange — accessible to crypto
-              users worldwide.
+              {t.tokenomics.exchangeDesc}
             </p>
           </Card>
 
@@ -134,22 +132,22 @@ export function Tokenomics() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full text-center">
               <div>
                 <div className="text-[14px] font-bold text-white uppercase tracking-wider">
-                  STAY PRICE WEIGHTING
+                  {t.tokenomics.weightingTitle}
                 </div>
                 <div className="mt-6 flex flex-col space-y-3 text-[#8B8BA2] text-[14px] md:text-[15px]">
-                  <span>OBED Market Avg (30-day) 40%</span>
-                  <span>Platform Price Index 35%</span>
-                  <span>Reserve Fund Balance 25%</span>
+                  {t.tokenomics.weightingItems.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
                 </div>
               </div>
               <div>
                 <div className="text-[14px] font-bold text-white uppercase tracking-wider">
-                  FUND MANAGEMENT
+                  {t.tokenomics.fundTitle}
                 </div>
                 <div className="mt-6 flex flex-col space-y-3 text-[#8B8BA2] text-[14px] md:text-[15px]">
-                  <span>Multi-sig wallet management</span>
-                  <span>Monthly public disclosure</span>
-                  <span>Continuously replenished via platform fees</span>
+                  {t.tokenomics.fundItems.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
                 </div>
               </div>
             </div>

@@ -3,10 +3,12 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { useGsap, gsap } from "@/hooks/use-gsap";
+import { useLanguage } from "@/lib/i18n";
 
 export function VideoSection() {
   const rootRef = useRef<HTMLElement | null>(null);
   const [playing, setPlaying] = useState(false);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-video-title]", {
@@ -129,7 +131,7 @@ export function VideoSection() {
                 "0 2px 20px rgba(0,0,0,0.6), 0 0 40px rgba(150,195,235,0.25)",
             }}
           >
-            OBED Coin Official Video
+            {t.video.title}
           </h2>
 
           <div
@@ -145,7 +147,7 @@ export function VideoSection() {
                 type="button"
                 onClick={() => setPlaying(true)}
                 className="group absolute inset-0 w-full h-full"
-                aria-label="Play OBED Coin official video"
+                aria-label={t.video.playLabel}
               >
                 <Image
                   src="/obed-video-thumb.jpg"
@@ -167,14 +169,6 @@ export function VideoSection() {
                 </div>
               </button>
             ) : (
-              // <iframe
-              //   className="absolute inset-0 w-full h-full"
-              //   src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-              //   title="OBED Coin Official Video"
-              //   allow="autoplay; encrypted-media"
-              //   allowFullScreen
-              // />
-
               <video
                 src="/OBED_Coin.mp4"
                 autoPlay

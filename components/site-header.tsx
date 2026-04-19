@@ -4,25 +4,26 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "@/hooks/use-gsap";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-
-const NAV_LINKS = [
-  { label: "Stay System", href: "#stay-system" },
-  { label: "Use Cases", href: "#use-cases" },
-  { label: "Tokenomics", href: "#tokenomics" },
-  { label: "How It Works", href: "#how-it-works" },
-  {
-    label: "Whitepaper",
-    href: "/OBED_whitepaper_en_0318.pdf",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  { label: "Q&A", href: "#qa" },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function SiteHeader() {
   const headerRef = useRef<HTMLElement | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState<"KO" | "EN">("EN");
+  const { locale, setLocale, t } = useLanguage();
+
+  const NAV_LINKS = [
+    { label: t.nav.staySystem, href: "#stay-system" },
+    { label: t.nav.useCases, href: "#use-cases" },
+    { label: t.nav.tokenomics, href: "#tokenomics" },
+    { label: t.nav.howItWorks, href: "#how-it-works" },
+    {
+      label: t.nav.whitepaper,
+      href: "/OBED_whitepaper_en_0318.pdf",
+      target: "_blank" as const,
+      rel: "noopener noreferrer",
+    },
+    { label: t.nav.qa, href: "#qa" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -105,10 +106,10 @@ export function SiteHeader() {
           <div className="ml-1 flex items-center p-1 gap-1 rounded-full bg-card border border-border ">
             <button
               type="button"
-              onClick={() => setLang("KO")}
+              onClick={() => setLocale("KO")}
               className={cn(
                 "px-3 py-1 text-[15px] leading-[22px] font-semibold rounded-full transition-all",
-                lang === "KO"
+                locale === "KO"
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground",
               )}
@@ -117,10 +118,10 @@ export function SiteHeader() {
             </button>
             <button
               type="button"
-              onClick={() => setLang("EN")}
+              onClick={() => setLocale("EN")}
               className={cn(
                 "px-3 py-1 text-[15px] leading-[22px] font-semibold rounded-full transition-all",
-                lang === "EN"
+                locale === "EN"
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground",
               )}

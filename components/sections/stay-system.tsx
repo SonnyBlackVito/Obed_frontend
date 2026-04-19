@@ -2,32 +2,13 @@
 
 import { useRef } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
-
-const FEATURES = [
-  {
-    title: "Minimum Guarantee",
-    desc: "Coins are never used below the announced Stay Price.",
-    icon: ShieldIcon,
-  },
-  {
-    title: "Market Independence",
-    desc: "Stay Price holds regardless of external exchange fluctuations.",
-    icon: ScaleIcon,
-  },
-  {
-    title: "Two-Way Benefit",
-    desc: "Market price applies when higher — always favoring the consumer.",
-    icon: SwapIcon,
-  },
-  {
-    title: "Transparent Disclosure",
-    desc: "All changes are announced in advance via official channels.",
-    icon: EyeIcon,
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function StaySystem() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
+  const features = t.staySystem.features;
+  const ICONS = [ShieldIcon, ScaleIcon, SwapIcon, EyeIcon];
 
   useGsap(() => {
     gsap.from("[data-stay='heading'] > *", {
@@ -87,7 +68,7 @@ export function StaySystem() {
         </svg>
 
         <span className="text-2xl font-extrabold drop-shadow-[0_0_5px_rgba(255,255,255,0.2)] text-[#5DA2D6] uppercase">
-          Core Mechanism
+          {t.staySystem.sectionLabel}
         </span>
       </div>
 
@@ -96,15 +77,14 @@ export function StaySystem() {
         className="relative z-10 text-center mb-5 md:mb-20 pb-10 drop-shadow-[0_0_6px_rgba(255,255,255,0.4)] max-w-6xl mx-auto flex flex-col items-center"
       >
         <h1 className="mt-4 text-4xl md:text-5xl text-white text-center font-inter font-extrabold self-stretch leading-tight md:whitespace-nowrap">
-          OBED Stay — Minimum Value Guarantee
+          {t.staySystem.heading}
         </h1>
         <p className="mt-5 text-[#8B8BA2] text-lg md:text-[20px] font-normal leading-[28px] w-full max-w-none mx-auto">
-          Even when the market price drops, the{" "}
+          {t.staySystem.description}
           <span className="bg-gradient-to-r from-[#61A6D9] to-[#2567A5] text-transparent bg-clip-text font-extrabold">
-            Stay Price (minimum exchange value)
-          </span>{" "}
-          protects your coin&apos;s value at checkout. Market price applies when
-          higher, Stay Price when lower — always in the consumer&apos;s favor.
+            {t.staySystem.descHighlight}
+          </span>
+          {t.staySystem.descEnd}
         </p>
       </div>
 
@@ -128,36 +108,38 @@ export function StaySystem() {
         >
           <div className="flex items-center justify-center gap-2 mb-8 text-white font-bold text-lg md:text-2xl">
             <ScaleIcon className="w-5 h-5 text-white" />
-            Stay Logic
+            {t.staySystem.stayLogic}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
             <CaseCard
-              label="CASE A — NORMAL MARKET · MARKET PRICE ≥ STAY PRICE"
-              badge="Market Price Applied"
+              label={t.staySystem.caseA.label}
+              badge={t.staySystem.caseA.badge}
               detail={
                 <span>
-                  Market price{" "}
+                  {t.staySystem.caseA.detail}
                   <span className="text-[#61A6D9] font-semibold">
-                    1,200 KRW
-                  </span>{" "}
-                  → Applied as-is
+                    {t.staySystem.caseA.detailValue}
+                  </span>
+                  {t.staySystem.caseA.detailEnd}
                 </span>
               }
               accent="green"
             />
             <CaseCard
-              label="CASE B — STAY ACTIVATED · MARKET PRICE < STAY PRICE"
-              badge="Stay Price Applied (Consumer Protected)"
+              label={t.staySystem.caseB.label}
+              badge={t.staySystem.caseB.badge}
               detail={
                 <span>
-                  Even at{" "}
-                  <span className="text-[#61A6D9] font-semibold">700 KRW</span>{" "}
-                  → Stay Price{" "}
+                  {t.staySystem.caseB.detail}
                   <span className="text-[#61A6D9] font-semibold">
-                    1,000 KRW
-                  </span>{" "}
-                  applied
+                    {t.staySystem.caseB.detailValue1}
+                  </span>
+                  {t.staySystem.caseB.detailMid}
+                  <span className="text-[#61A6D9] font-semibold">
+                    {t.staySystem.caseB.detailValue2}
+                  </span>
+                  {t.staySystem.caseB.detailEnd}
                 </span>
               }
               accent="red"
@@ -165,11 +147,11 @@ export function StaySystem() {
           </div>
 
           <div className="mt-8 text-center text-[14px] md:text-[20px] font-medium italic font-inter text-[#FFF]">
-            💡 Stay Price is reviewed monthly and announced{" "}
+            {t.staySystem.notice}
             <span className="text-[#2567A5] font-medium italic">
-              48 hours in advance
-            </span>{" "}
-            via official channels.
+              {t.staySystem.noticeHighlight}
+            </span>
+            {t.staySystem.noticeEnd}
           </div>
         </div>
 
@@ -178,27 +160,30 @@ export function StaySystem() {
           data-stay="features"
           className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {FEATURES.map(({ title, desc, icon: Icon }) => (
-            <div
-              key={title}
-              data-stay="feature"
-              className="relative rounded-2xl border border-[#61A6D9]/70 p-6 hover:border-[#61A6D9]/50 transition-colors"
-              style={{
-                background:
-                  "radial-gradient(ellipse 50% 50% at 110% 0%, rgba(120, 180, 255, 0.25), transparent 70%), radial-gradient(ellipse 70% 70% at -10% 100%, rgba(120, 180, 255, 0.25), transparent 70%), #15181B",
-              }}
-            >
-              <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#61A6D9] text-[#61A6D9] mb-5">
-                <Icon className="w-5 h-5" />
+          {features.map((feat, i) => {
+            const Icon = ICONS[i];
+            return (
+              <div
+                key={feat.title}
+                data-stay="feature"
+                className="relative rounded-2xl border border-[#61A6D9]/70 p-6 hover:border-[#61A6D9]/50 transition-colors"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 50% 50% at 110% 0%, rgba(120, 180, 255, 0.25), transparent 70%), radial-gradient(ellipse 70% 70% at -10% 100%, rgba(120, 180, 255, 0.25), transparent 70%), #15181B",
+                }}
+              >
+                <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#61A6D9] text-[#61A6D9] mb-5">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-white text-[16px] leading-[24px] mb-2">
+                  {feat.title}
+                </h3>
+                <p className="text-[#8B8BA2] font-inter text-[14px] font-normal leading-relaxed">
+                  {feat.desc}
+                </p>
               </div>
-              <h3 className="font-bold text-white text-[16px] leading-[24px] mb-2">
-                {title}
-              </h3>
-              <p className="text-[#8B8BA2] font-inter text-[14px] font-normal leading-relaxed">
-                {desc}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

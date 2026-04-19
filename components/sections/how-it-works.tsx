@@ -2,32 +2,11 @@
 
 import { useRef } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
-
-const STEPS = [
-  {
-    n: "STEP 1",
-    title: "Buy OBED Coin",
-    desc: "Purchase OBED Coin on a global cryptocurrency exchange.",
-  },
-  {
-    n: "STEP 2",
-    title: "Connect Your Wallet",
-    desc: "Link your wallet to the official OBED app.",
-  },
-  {
-    n: "STEP 3",
-    title: "Choose OBED Pay",
-    desc: "Select OBED Coin payment in-store or online.",
-  },
-  {
-    n: "STEP 4",
-    title: "Stay Auto-Applied",
-    desc: "The system automatically applies the best Stay Price for you.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function HowItWorks() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-how='heading'] > *", {
@@ -100,10 +79,10 @@ export function HowItWorks() {
             className="block w-10 h-[3px] rounded-full bg-primary/80"
           />
           <span className="mt-4 text-xs md:text-sm tracking-[0.3em] font-bold text-primary drop-shadow-[0_0_12px_rgba(0,178,255,0.55)]">
-            HOW IT WORKS
+            {t.howItWorks.sectionLabel}
           </span>
           <h2 className="mt-8 md:mt-10 text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-balance">
-            Simple Steps to Start
+            {t.howItWorks.heading}
           </h2>
         </div>
 
@@ -112,7 +91,7 @@ export function HowItWorks() {
           data-how="steps"
           className="mt-16 md:mt-24 flex flex-col md:flex-row items-stretch md:items-start gap-10 md:gap-0"
         >
-          {STEPS.map((step, i) => (
+          {t.howItWorks.steps.map((step, i) => (
             <div
               key={step.n}
               className="flex-1 flex flex-col md:flex-row items-center md:items-start"
@@ -147,7 +126,7 @@ export function HowItWorks() {
               </div>
 
               {/* Connector (between orbs only) */}
-              {i < STEPS.length - 1 && (
+              {i < t.howItWorks.steps.length - 1 && (
                 <div
                   aria-hidden
                   className="hidden md:flex items-center justify-center shrink-0 h-28 md:h-32 px-2"

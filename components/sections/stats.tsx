@@ -2,16 +2,11 @@
 
 import { useRef } from "react";
 import { useGsap, gsap, ScrollTrigger } from "@/hooks/use-gsap";
-
-const STATS = [
-  { value: "250+", label: "Partner Dermatology Clinics" },
-  { value: "140,000+", label: "Products on Partner Mall" },
-  { value: "50%", label: "Discount on Coin Payment" },
-  { value: "50%", label: "Reserve Fund of Total Supply" },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function Stats() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-stat]", {
@@ -186,14 +181,14 @@ export function Stats() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 divide-border relative z-10">
-            {STATS.map((stat, i) => (
+            {t.stats.map((stat, i) => (
               <div
                 key={stat.label + i}
                 data-stat
                 className="relative px-6 py-6 md:py-8 text-center"
               >
                 {/* Custom Gradient Divider | */}
-                {i !== STATS.length - 1 && (
+                {i !== t.stats.length - 1 && (
                   <div
                     className={`absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-[45px] pointer-events-none ${
                       i % 2 !== 0 ? "hidden md:block" : ""

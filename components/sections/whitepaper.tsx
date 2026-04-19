@@ -2,9 +2,11 @@
 
 import { useRef } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
+import { useLanguage } from "@/lib/i18n";
 
 export function Whitepaper() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-wp='heading'] > *", {
@@ -38,30 +40,27 @@ export function Whitepaper() {
       <div className="mx-auto max-w-6xl">
         <div data-wp="heading" className="text-center max-w-2xl mx-auto">
           <span className="text-xs tracking-[0.25em] text-primary font-semibold">
-            WHITEPAPER
+            {t.whitepaper.sectionLabel}
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground text-balance">
-            Official OBED Coin Whitepaper
+            {t.whitepaper.heading}
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Download the official whitepaper covering our business model, Stay
-            system, tokenomics, and roadmap.
+            {t.whitepaper.description}
           </p>
         </div>
 
         <div data-wp="cards" className="mt-12 grid md:grid-cols-2 gap-5">
-          <PaperCard
-            lang="English · 영어"
-            title="OBED Whitepaper"
-            meta="OBED_whitepaper_en_0318.pdf"
-            href="/OBED_whitepaper_en_0318.pdf"
-          />
-          <PaperCard
-            lang="English · 영어"
-            title="Legal Opinion Letter"
-            meta="Legal_Opinion_Letter_obed.pdf"
-            href="/Legal_Opinion_Letter_obed.pdf"
-          />
+          {t.whitepaper.papers.map((paper) => (
+            <PaperCard
+              key={paper.meta}
+              lang={paper.lang}
+              title={paper.title}
+              meta={paper.meta}
+              href={paper.href}
+              downloadLabel={t.whitepaper.download}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -73,11 +72,13 @@ function PaperCard({
   title,
   meta,
   href,
+  downloadLabel,
 }: {
   lang: string;
   title: string;
   meta: string;
   href: string;
+  downloadLabel: string;
 }) {
   return (
     <div
@@ -106,7 +107,7 @@ function PaperCard({
         className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:shadow-glow-cyan transition-shadow"
       >
         <DownloadIcon className="w-4 h-4" />
-        Download
+        {downloadLabel}
       </a>
     </div>
   );

@@ -1,5 +1,8 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n";
 
 function Divider() {
   return (
@@ -33,6 +36,8 @@ function InfoItem({
 }
 
 export function SiteFooter() {
+  const { t } = useLanguage();
+
   return (
     <footer
       className="relative overflow-hidden border-t border-border"
@@ -68,29 +73,29 @@ export function SiteFooter() {
 
         {/* Info row 1 */}
         <div className="mt-8 sm:mt-10 md:mt-12 flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-6">
-          <InfoItem label="Company" value="주식회사 오벳" />
+          <InfoItem label={t.footer.company} value={t.footer.companyValue} />
           <Divider />
-          <InfoItem label="CEO" value="유경수 (RYU KYUNG SOO)" />
+          <InfoItem label={t.footer.ceo} value={t.footer.ceoValue} />
           <Divider />
-          <InfoItem label="Reg. No." value="899-81-03634" />
+          <InfoItem label={t.footer.regNo} value={t.footer.regNoValue} />
         </div>
 
         {/* Info row 2 */}
         <div className="mt-2 sm:mt-4 md:mt-6 flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-6">
           <InfoItem
-            label="Address"
-            value="경기도 포천시 화현면 금강로 3749, 1층"
+            label={t.footer.address}
+            value={t.footer.addressValue}
           />
           <Divider />
           <InfoItem
-            label="Business Type"
-            value="Wholesale, Retail & Services"
+            label={t.footer.businessType}
+            value={t.footer.businessTypeValue}
           />
         </div>
 
         {/* Copyright */}
         <p className="mt-10 sm:mt-14 md:mt-20 text-xs sm:text-sm text-muted-foreground">
-          © 2026 주식회사 오벳 · OBED . All rights reserved.
+          {t.footer.copyright}
         </p>
       </div>
     </footer>

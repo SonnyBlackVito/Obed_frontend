@@ -3,33 +3,12 @@
 import { useRef, useState } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
 import { cn } from "@/lib/utils";
-
-const FAQS = [
-  {
-    q: "Where can I buy OBED Coin?",
-    a: "OBED Coin is listed on a global cryptocurrency exchange. You can buy it with USDT or KRW through your verified exchange account.",
-  },
-  {
-    q: "What is Stay Price?",
-    a: "Stay Price is the minimum exchange value of OBED Coin. Even if the market price drops below it, Stay Price applies at checkout — protecting the value the coin holders rely on. It is announced monthly by the committee.",
-  },
-  {
-    q: "Where can I pay with OBED Coin?",
-    a: "You can currently pay at 250+ partner dermatology clinics and the OBED official e-commerce mall with 140,000+ products. More partners are being added continuously.",
-  },
-  {
-    q: "How is the Reserve Fund managed?",
-    a: "5% of total supply is managed as the Reserve Fund. It is secured via multi-sig wallet and discussed monthly through official channels. It is used to maintain the Stay Price and price stability.",
-  },
-  {
-    q: "How can I ask more questions?",
-    a: "For further inquiries, feel free to join our official Telegram channel below. Our team will respond promptly.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function FAQ() {
   const rootRef = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState<number | null>(0);
+  const { t } = useLanguage();
 
   useGsap(() => {
     gsap.from("[data-faq='heading'] > *", {
@@ -66,19 +45,18 @@ export function FAQ() {
       <div className="mx-auto max-w-4xl">
         <div data-faq="heading" className="text-center">
           <span className="text-xs tracking-[0.25em] text-primary font-semibold">
-            Q&amp;A
+            {t.faq.sectionLabel}
           </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
-            Frequently Asked Questions
+            {t.faq.heading}
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Have questions about OBED Coin? Check our frequently asked questions
-            below.
+            {t.faq.description}
           </p>
         </div>
 
         <div data-faq="list" className="mt-10 space-y-3">
-          {FAQS.map((item, i) => {
+          {t.faq.items.map((item, i) => {
             const isOpen = open === i;
             return (
               <div
@@ -144,11 +122,10 @@ export function FAQ() {
         >
           <div className="flex-1">
             <div className="font-semibold text-foreground">
-              More questions? Join our Telegram!
+              {t.faq.ctaTitle}
             </div>
             <div className="mt-1 text-sm text-muted-foreground">
-              Get the latest news and real-time Q&amp;A on the official OBED
-              Coin Telegram channel.
+              {t.faq.ctaDescription}
             </div>
           </div>
           <a
@@ -157,7 +134,7 @@ export function FAQ() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-glow-cyan transition-shadow"
           >
-            Official Telegram
+            {t.faq.ctaButton}
           </a>
         </div>
       </div>

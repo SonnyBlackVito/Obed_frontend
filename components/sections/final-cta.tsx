@@ -3,9 +3,11 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useGsap, gsap } from "@/hooks/use-gsap";
+import { useLanguage } from "@/lib/i18n";
 
 export function FinalCTA() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const { t } = useLanguage();
 
   useGsap(() => {
     // Reveal content on scroll
@@ -95,13 +97,13 @@ export function FinalCTA() {
       <div data-cta className="relative mx-auto max-w-3xl text-center">
         <h2 className="text-4xl md:text-6xl font-bold text-balance leading-[1.1]">
           <span className="block text-foreground text-glow-white">
-            Start with OBED Coin
+            {t.finalCta.heading1}
           </span>
-          <span className="block text-primary text-glow-cyan mt-2">Today</span>
+          <span className="block text-primary text-glow-cyan mt-2">{t.finalCta.heading2}</span>
         </h2>
 
         <p className="mt-6 text-muted-foreground text-base md:text-lg">
-          Your coin&apos;s value is always protected by OBED Stay.
+          {t.finalCta.description}
         </p>
 
         {/* Primary action row */}
@@ -113,13 +115,13 @@ export function FinalCTA() {
               background: "linear-gradient(90deg, #00b2ff 0%, #22d3ee 100%)",
             }}
           >
-            Learn About Stay System
+            {t.finalCta.cta1}
           </a>
           <a
             href="#whitepaper"
             className="inline-flex items-center justify-center min-w-[240px] px-8 py-4 rounded-full font-semibold bg-card border border-border text-foreground hover:border-primary/60 transition-colors"
           >
-            Download Whitepaper
+            {t.finalCta.cta2}
           </a>
         </div>
 
@@ -140,7 +142,7 @@ export function FinalCTA() {
             >
               <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
             </svg>
-            Official Telegram
+            {t.finalCta.telegram}
           </a>
           <a
             href="https://x.com/CoinObed94777"
@@ -157,7 +159,7 @@ export function FinalCTA() {
             >
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
-            Official X
+            {t.finalCta.x}
           </a>
         </div>
       </div>
