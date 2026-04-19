@@ -46,16 +46,16 @@ export function Hero() {
             Stability Meets Utility. The Future of Smart Consumption.
           </p>
 
-          <div className="mt-14 flex flex-col sm:flex-row gap-[10px] font-inter justify-center items-center w-full max-w-sm sm:max-w-none mx-auto">
+          <div className="mt-8 sm:mt-14 flex flex-col sm:flex-row gap-2 sm:gap-[10px] font-inter justify-center items-center w-full max-w-[280px] sm:max-w-none mx-auto">
             <a
               data-hero="cta"
               href="#stay-system"
-              className="group relative w-full sm:w-[309px] flex items-center justify-center gap-[10px] px-[32px] py-[16px] rounded-full font-semibold text-primary-foreground overflow-hidden"
+              className="group relative w-full sm:w-[309px] flex items-center justify-center gap-[6px] sm:gap-[10px] px-5 sm:px-[32px] py-3 sm:py-[16px] rounded-full font-semibold text-primary-foreground overflow-hidden"
               style={{
                 background: "linear-gradient(90deg, #0AF 0%, #00C9D7 100%)",
               }}
             >
-              <span className="relative text-white font-normal leading-[24px] text-[16px] md:text-[18px] z-10">
+              <span className="relative text-white font-normal leading-[20px] sm:leading-[24px] text-[14px] sm:text-[16px] md:text-[18px] z-10">
                 Explore Stay System
               </span>
               <span
@@ -69,9 +69,9 @@ export function Hero() {
             <a
               data-hero="cta"
               href="#use-cases"
-              className="group w-full sm:w-[309px] flex items-center justify-center gap-[10px] px-[32px] py-[16px] rounded-full font-semibold bg-card border border-solid border-[#8B8BA2] text-foreground hover:border-primary/60 transition-colors"
+              className="group w-full sm:w-[309px] flex items-center justify-center gap-[6px] sm:gap-[10px] px-5 sm:px-[32px] py-3 sm:py-[16px] rounded-full font-semibold bg-card border border-solid border-[#8B8BA2] text-foreground hover:border-primary/60 transition-colors"
             >
-              <span className="relative text-white font-normal leading-[24px] text-[16px] md:text-[18px] z-10">
+              <span className="relative text-white font-normal leading-[20px] sm:leading-[24px] text-[14px] sm:text-[16px] md:text-[18px] z-10">
                 See Use Cases
               </span>
             </a>

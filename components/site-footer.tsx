@@ -20,7 +20,12 @@ function InfoItem({
   className?: string;
 }) {
   return (
-    <div className={cn("text-xs sm:text-sm md:text-base text-foreground/90", className)}>
+    <div
+      className={cn(
+        "text-xs sm:text-sm md:text-base text-foreground/90",
+        className,
+      )}
+    >
       <span className="font-semibold">{label} : </span>
       <span className="text-foreground/80">{value}</span>
     </div>
