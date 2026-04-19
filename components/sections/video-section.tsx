@@ -43,9 +43,11 @@ export function VideoSection() {
   return (
     <section
       ref={rootRef}
-      className="relative px-4 md:px-6 sm:py-2 md:py-10 py-20 lg:py-28 overflow-hidden bg-background
+      className="relative px-4 md:px-6 
+             py-4 sm:py-6 md:py-10 lg:py-28 
+             overflow-hidden bg-background
              bg-[url('/obed_offical_video.png')] bg-no-repeat bg-cover
-             bg-[center_top] md:bg-[center_60%] lg:bg-[0%_100%] xl:bg-[0%_90%] 2xl:bg-[0%_80%] 3xl:bg-[0%_90%] "
+             bg-[center_top] md:bg-[center_60%] lg:bg-[0%_120%]"
     >
       <div className="relative mx-auto max-w-6xl">
         {/* Stage background: dark room + overhead light cone + lit floor */}
