@@ -163,12 +163,19 @@ export function VideoSection() {
                 </div>
               </button>
             ) : (
-              <iframe
+              // <iframe
+              //   className="absolute inset-0 w-full h-full"
+              //   src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              //   title="OBED Coin Official Video"
+              //   allow="autoplay; encrypted-media"
+              //   allowFullScreen
+              // />
+
+              <video
+                src="/OBED_Coin.mp4"
+                autoPlay
+                controls
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="OBED Coin Official Video"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
               />
             )}
           </div>

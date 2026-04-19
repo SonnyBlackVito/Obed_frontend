@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { useGsap, gsap } from "@/hooks/use-gsap"
+import { useRef } from "react";
+import { useGsap, gsap } from "@/hooks/use-gsap";
 
 const STEPS = [
   {
@@ -24,10 +24,10 @@ const STEPS = [
     title: "Stay Auto-Applied",
     desc: "The system automatically applies the best Stay Price for you.",
   },
-]
+];
 
 export function HowItWorks() {
-  const rootRef = useRef<HTMLElement | null>(null)
+  const rootRef = useRef<HTMLElement | null>(null);
 
   useGsap(() => {
     gsap.from("[data-how='heading'] > *", {
@@ -37,7 +37,7 @@ export function HowItWorks() {
       stagger: 0.1,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 80%" },
-    })
+    });
     gsap.from("[data-how='orb']", {
       scale: 0.6,
       opacity: 0,
@@ -45,7 +45,7 @@ export function HowItWorks() {
       stagger: 0.15,
       ease: "back.out(1.6)",
       scrollTrigger: { trigger: "[data-how='steps']", start: "top 80%" },
-    })
+    });
     gsap.from("[data-how='text']", {
       y: 20,
       opacity: 0,
@@ -53,7 +53,7 @@ export function HowItWorks() {
       stagger: 0.12,
       ease: "power3.out",
       scrollTrigger: { trigger: "[data-how='steps']", start: "top 75%" },
-    })
+    });
     gsap.from("[data-how='connector-line']", {
       scaleX: 0,
       transformOrigin: "left center",
@@ -61,7 +61,7 @@ export function HowItWorks() {
       stagger: 0.15,
       ease: "power3.out",
       scrollTrigger: { trigger: "[data-how='steps']", start: "top 75%" },
-    })
+    });
     gsap.from("[data-how='connector-dot']", {
       scale: 0,
       opacity: 0,
@@ -69,8 +69,8 @@ export function HowItWorks() {
       stagger: 0.08,
       ease: "back.out(2)",
       scrollTrigger: { trigger: "[data-how='steps']", start: "top 75%" },
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <section
@@ -91,8 +91,14 @@ export function HowItWorks() {
 
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
-        <div data-how="heading" className="flex flex-col items-center text-center">
-          <span aria-hidden className="block w-10 h-[3px] rounded-full bg-primary/80" />
+        <div
+          data-how="heading"
+          className="flex flex-col items-center text-center"
+        >
+          <span
+            aria-hidden
+            className="block w-10 h-[3px] rounded-full bg-primary/80"
+          />
           <span className="mt-4 text-xs md:text-sm tracking-[0.3em] font-bold text-primary drop-shadow-[0_0_12px_rgba(0,178,255,0.55)]">
             HOW IT WORKS
           </span>
@@ -171,5 +177,5 @@ export function HowItWorks() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -28,7 +28,7 @@ export function Hero() {
               data-hero="title-1"
               className="block text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)] font-extrabold leading-none tracking-[0.64px] text-4xl md:text-5xl lg:text-[64px] text-center"
             >
-              Your Coin&apos;s Value,
+              OBED Coin Value,
             </span>
             <span
               data-hero="title-2"
@@ -42,7 +42,8 @@ export function Hero() {
             data-hero="subtitle"
             className="mt-6 mx-auto text-center  font-inter text-[14px] font-normal leading-[24px] text-base md:text-lg text-muted-foreground max-w-xl "
           >
-            E-Commerce · Dermatology · Daily Payments — All with OBED Coin
+            {/* E-Commerce · Dermatology · Daily Payments — All with OBED Coin */}
+            Stability Meets Utility. The Future of Smart Consumption.
           </p>
 
           <div className="mt-14 flex flex-col sm:flex-row gap-[10px] font-inter justify-center items-center w-full max-w-sm sm:max-w-none mx-auto">

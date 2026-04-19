@@ -30,15 +30,19 @@ export function UseCases() {
       ref={rootRef}
       id="use-cases"
       className="relative px-4 md:px-6 py-20 md:py-28 border-t border-border"
+      style={{
+        background:
+          "radial-gradient(25% 80% at 0% 50%, rgba(93, 162, 214, 0.35), transparent 100%), radial-gradient(25% 80% at 100% 50%, rgba(93, 162, 214, 0.35), transparent 100%), #0B0F19",
+      }}
     >
-      <div className="flex justify-center">
+      <div className="flex flex-col items-center justify-center mb-12 md:mb-16">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="99"
           height="6"
           viewBox="0 0 99 6"
           fill="none"
-          className="mb-3"
+          className="mb-2"
         >
           <path
             d="M3 3H96"
@@ -47,23 +51,26 @@ export function UseCases() {
             strokeLinecap="round"
           />
         </svg>
+        <span className="text-xs drop-shadow-[0_0_5px_rgba(93,162,214,0.4)] tracking-[0.2em] text-[#5DA2D6] font-extrabold uppercase">
+          USE CASES
+        </span>
       </div>
 
       <div className="mx-auto max-w-6xl">
         <div data-uc="heading" className="text-center max-w-2xl mx-auto">
-          <span className="text-xs tracking-[0.25em] text-primary font-semibold">
-            USE CASES
-          </span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-5xl font-bold text-white">
             Use OBED Coin Anywhere
           </h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-5 text-[#8B8BA2] text-[15px] md:text-[18px]">
             From online shopping to offline clinic visits — OBED Coin is part of
             your daily life.
           </p>
         </div>
 
-        <div data-uc="cards" className="mt-12 grid md:grid-cols-2 gap-5">
+        <div
+          data-uc="cards"
+          className="mt-16 md:mt-20 grid md:grid-cols-2 gap-6"
+        >
           <UseCaseCard
             icon={<CartIcon className="w-6 h-6" />}
             title="E-Commerce Shopping Mall"
@@ -96,15 +103,11 @@ function UseCaseCard({
   return (
     <div
       data-uc="card"
-      className="relative rounded-2xl border border-border bg-card p-6 md:p-8 hover:border-primary/60 transition-colors overflow-hidden"
+      className="relative rounded-2xl border border-[#5DA2D6]/60 bg-card p-6 md:p-8 hover:border-primary/60 transition-colors overflow-hidden"
     >
       <div
         aria-hidden
         className="absolute -top-20 -right-20 w-64 h-64 rounded-full opacity-40"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(0,178,255,0.25), transparent 70%)",
-        }}
       />
       <div className="relative">
         <div className="w-12 h-12 rounded-xl grid place-items-center bg-primary/10 border border-primary/30 text-primary">
