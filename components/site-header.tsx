@@ -10,11 +10,11 @@ const NAV_LINKS = [
   { label: "Use Cases", href: "#use-cases" },
   { label: "Tokenomics", href: "#tokenomics" },
   { label: "How It Works", href: "#how-it-works" },
-  { 
-    label: "Whitepaper", 
+  {
+    label: "Whitepaper",
     href: "/OBED_whitepaper_en_0318.pdf",
     target: "_blank",
-    rel: "noopener noreferrer"
+    rel: "noopener noreferrer",
   },
   { label: "Q&A", href: "#qa" },
 ];
@@ -84,14 +84,18 @@ export function SiteHeader() {
           data-anim="nav-item"
         >
           <a
-            href="#"
+            href="https://t.me/obedworld"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Telegram"
             className="w-9 h-9 rounded-full grid place-items-center text-muted-foreground hover:text-foreground transition-colors"
           >
             <TelegramIcon className="w-4 h-4" />
           </a>
           <a
-            href="#"
+            href="https://x.com/CoinObed94777"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="X"
             className="w-9 h-9 rounded-full grid place-items-center text-muted-foreground hover:text-foreground transition-colors"
           >

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useRef } from "react"
-import { useGsap, gsap } from "@/hooks/use-gsap"
+import Image from "next/image";
+import { useRef } from "react";
+import { useGsap, gsap } from "@/hooks/use-gsap";
 
 export function FinalCTA() {
-  const rootRef = useRef<HTMLElement | null>(null)
+  const rootRef = useRef<HTMLElement | null>(null);
 
   useGsap(() => {
     // Reveal content on scroll
@@ -16,7 +16,7 @@ export function FinalCTA() {
       stagger: 0.12,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 80%" },
-    })
+    });
 
     // Side bar images slide in from their respective edges
     gsap.from("[data-bars='left']", {
@@ -25,14 +25,14 @@ export function FinalCTA() {
       duration: 1.1,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 85%" },
-    })
+    });
     gsap.from("[data-bars='right']", {
       x: 80,
       opacity: 0,
       duration: 1.1,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 85%" },
-    })
+    });
 
     // Gentle continuous float so the bars feel alive
     gsap.to("[data-bars]", {
@@ -41,8 +41,8 @@ export function FinalCTA() {
       ease: "sine.inOut",
       yoyo: true,
       repeat: -1,
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <section
@@ -126,7 +126,7 @@ export function FinalCTA() {
         {/* Secondary social row */}
         <div className="mt-4 flex flex-col sm:flex-row gap-3 justify-center items-center">
           <a
-            href="https://t.me/"
+            href="https://t.me/obedworld"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 min-w-[200px] px-6 py-3 rounded-full border border-border bg-card/60 text-muted-foreground hover:text-foreground hover:border-primary/60 transition-colors text-sm"
@@ -143,7 +143,7 @@ export function FinalCTA() {
             Official Telegram
           </a>
           <a
-            href="https://x.com/"
+            href="https://x.com/CoinObed94777"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 min-w-[200px] px-6 py-3 rounded-full border border-border bg-card/60 text-muted-foreground hover:text-foreground hover:border-primary/60 transition-colors text-sm"
@@ -162,5 +162,5 @@ export function FinalCTA() {
         </div>
       </div>
     </section>
-  )
+  );
 }

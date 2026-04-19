@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import { useGsap, gsap } from "@/hooks/use-gsap"
-import { cn } from "@/lib/utils"
+import { useRef, useState } from "react";
+import { useGsap, gsap } from "@/hooks/use-gsap";
+import { cn } from "@/lib/utils";
 
 const FAQS = [
   {
@@ -25,11 +25,11 @@ const FAQS = [
     q: "How can I ask more questions?",
     a: "For further inquiries, feel free to join our official Telegram channel below. Our team will respond promptly.",
   },
-]
+];
 
 export function FAQ() {
-  const rootRef = useRef<HTMLElement | null>(null)
-  const [open, setOpen] = useState<number | null>(0)
+  const rootRef = useRef<HTMLElement | null>(null);
+  const [open, setOpen] = useState<number | null>(0);
 
   useGsap(() => {
     gsap.from("[data-faq='heading'] > *", {
@@ -39,7 +39,7 @@ export function FAQ() {
       stagger: 0.1,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 80%" },
-    })
+    });
     gsap.from("[data-faq='item']", {
       y: 20,
       opacity: 0,
@@ -47,32 +47,39 @@ export function FAQ() {
       stagger: 0.06,
       ease: "power3.out",
       scrollTrigger: { trigger: "[data-faq='list']", start: "top 85%" },
-    })
+    });
     gsap.from("[data-faq='cta']", {
       y: 30,
       opacity: 0,
       duration: 0.8,
       ease: "power3.out",
       scrollTrigger: { trigger: "[data-faq='cta']", start: "top 90%" },
-    })
-  }, [])
+    });
+  }, []);
 
   return (
-    <section ref={rootRef} id="qa" className="relative px-4 md:px-6 py-20 md:py-28 border-t border-border">
+    <section
+      ref={rootRef}
+      id="qa"
+      className="relative px-4 md:px-6 py-20 md:py-28 border-t border-border"
+    >
       <div className="mx-auto max-w-4xl">
         <div data-faq="heading" className="text-center">
-          <span className="text-xs tracking-[0.25em] text-primary font-semibold">Q&amp;A</span>
+          <span className="text-xs tracking-[0.25em] text-primary font-semibold">
+            Q&amp;A
+          </span>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Have questions about OBED Coin? Check our frequently asked questions below.
+            Have questions about OBED Coin? Check our frequently asked questions
+            below.
           </p>
         </div>
 
         <div data-faq="list" className="mt-10 space-y-3">
           {FAQS.map((item, i) => {
-            const isOpen = open === i
+            const isOpen = open === i;
             return (
               <div
                 key={item.q}
@@ -95,10 +102,18 @@ export function FAQ() {
                   <span
                     className={cn(
                       "w-7 h-7 rounded-full grid place-items-center transition-transform",
-                      isOpen ? "bg-primary text-primary-foreground rotate-45" : "bg-background border border-border text-muted-foreground",
+                      isOpen
+                        ? "bg-primary text-primary-foreground rotate-45"
+                        : "bg-background border border-border text-muted-foreground",
                     )}
                   >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="w-4 h-4"
+                    >
                       <path d="M12 5v14M5 12h14" strokeLinecap="round" />
                     </svg>
                   </span>
@@ -106,7 +121,9 @@ export function FAQ() {
                 <div
                   className={cn(
                     "grid transition-all duration-300",
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                    isOpen
+                      ? "grid-rows-[1fr] opacity-100"
+                      : "grid-rows-[0fr] opacity-0",
                   )}
                 >
                   <div className="overflow-hidden">
@@ -116,7 +133,7 @@ export function FAQ() {
                   </div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
 
@@ -130,11 +147,14 @@ export function FAQ() {
               More questions? Join our Telegram!
             </div>
             <div className="mt-1 text-sm text-muted-foreground">
-              Get the latest news and real-time Q&amp;A on the official OBED Coin Telegram channel.
+              Get the latest news and real-time Q&amp;A on the official OBED
+              Coin Telegram channel.
             </div>
           </div>
           <a
-            href="#"
+            href="https://t.me/OBED_Coin"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-glow-cyan transition-shadow"
           >
             Official Telegram
@@ -142,5 +162,5 @@ export function FAQ() {
         </div>
       </div>
     </section>
-  )
+  );
 }
