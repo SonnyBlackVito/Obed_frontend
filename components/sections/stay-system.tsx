@@ -126,7 +126,7 @@ export function StaySystem() {
           data-stay="logic"
           className="mt-14 bg-[#15181B] relative rounded-[24px] border border-[#61A6D9] p-8 md:p-10"
         >
-          <div className="flex items-center justify-center gap-2 mb-8 text-white font-bold text-lg md:text-xl">
+          <div className="flex items-center justify-center gap-2 mb-8 text-white font-bold text-lg md:text-2xl">
             <ScaleIcon className="w-5 h-5 text-white" />
             Stay Logic
           </div>
@@ -164,9 +164,9 @@ export function StaySystem() {
             />
           </div>
 
-          <div className="mt-8 text-center text-[14px] md:text-[15px] italic text-[#8B8BA2]">
+          <div className="mt-8 text-center text-[14px] md:text-[20px] font-medium italic font-inter text-[#FFF]">
             💡 Stay Price is reviewed monthly and announced{" "}
-            <span className="text-[#61A6D9] font-medium italic">
+            <span className="text-[#2567A5] font-medium italic">
               48 hours in advance
             </span>{" "}
             via official channels.
@@ -182,14 +182,19 @@ export function StaySystem() {
             <div
               key={title}
               data-stay="feature"
-              // bg-gradient-to-br from-[#122A40]/50 to-[#0E1520]
-              className="relative rounded-2xl border border-[#333] bg-[#15181B]  p-6 hover:border-[#61A6D9]/50 transition-colors"
+              className="relative rounded-2xl border border-[#61A6D9]/70 p-6 hover:border-[#61A6D9]/50 transition-colors"
+              style={{
+                background:
+                  "radial-gradient(ellipse 50% 50% at 110% 0%, rgba(120, 180, 255, 0.25), transparent 70%), radial-gradient(ellipse 70% 70% at -10% 100%, rgba(120, 180, 255, 0.25), transparent 70%), #15181B",
+              }}
             >
-              <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#333] text-[#61A6D9] mb-5">
+              <div className="w-10 h-10 rounded-full flex justify-center items-center border border-[#61A6D9] text-[#61A6D9] mb-5">
                 <Icon className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-white text-[15px] mb-2">{title}</h3>
-              <p className="text-[#8B8BA2] text-[13px] leading-relaxed">
+              <h3 className="font-bold text-white text-[16px] leading-[24px] mb-2">
+                {title}
+              </h3>
+              <p className="text-[#8B8BA2] font-inter text-[14px] font-normal leading-relaxed">
                 {desc}
               </p>
             </div>
