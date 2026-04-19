@@ -12,10 +12,10 @@ export function Hero() {
     <section
       // ref={rootRef}
       id="top"
-      className="relative w-full  bg-[##0B0F19] overflow-hidden py-28 md:py-36 pb-16 md:pb-12"
+      className="relative w-full bg-[#0B0F19] overflow-hidden py-28 md:py-36 pb-16 md:pb-12"
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-        <div className="relative ">
+        <div className="relative order-last lg:order-first">
           <div
             data-hero="badge"
             className="w-fit mb-8 h-auto min-h-[36px] px-4 md:px-6 flex mx-auto items-center gap-[8px] py-[6px] rounded-full bg-[#192430] border-[1.5px] border-[#61A6D9] text-white text-center text-[12px] md:text-[14px] font-semibold leading-normal md:leading-[24px]"
@@ -83,7 +83,7 @@ export function Hero() {
         {/* Coin illustration */}
         <div
           data-hero="coin"
-          className="relative aspect-square max-w-[560px] mx-auto w-full"
+          className="relative aspect-square max-w-[560px] mx-auto w-full order-first lg:order-last"
         >
           <div data-hero="coin-inner" className="relative w-full h-full">
             <Image

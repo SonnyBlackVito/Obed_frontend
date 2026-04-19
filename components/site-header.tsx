@@ -81,7 +81,7 @@ export function SiteHeader() {
         </nav>
 
         <div
-          className="flex items-center gap-3 w-[108px] h-[32px]"
+          className="flex items-center gap-2 sm:gap-3 shrink-0"
           data-anim="nav-item"
         >
           <a
@@ -89,7 +89,7 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Telegram"
-            className="w-9 h-9 rounded-full grid place-items-center text-muted-foreground hover:text-foreground transition-colors"
+            className="grid w-7 h-7 sm:w-9 sm:h-9 rounded-full place-items-center text-muted-foreground hover:text-foreground transition-colors"
           >
             <TelegramIcon className="w-4 h-4" />
           </a>
@@ -98,17 +98,17 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X"
-            className="w-9 h-9 rounded-full grid place-items-center text-muted-foreground hover:text-foreground transition-colors"
+            className="grid w-7 h-7 sm:w-9 sm:h-9 rounded-full place-items-center text-muted-foreground hover:text-foreground transition-colors"
           >
             <XIcon className="w-4 h-4" />
           </a>
 
-          <div className="ml-1 flex items-center p-1 gap-1 rounded-full bg-card border border-border ">
+          <div className="flex items-center p-1 gap-1 rounded-full bg-card border border-border">
             <button
               type="button"
               onClick={() => setLocale("KO")}
               className={cn(
-                "px-3 py-1 text-[15px] leading-[22px] font-semibold rounded-full transition-all",
+                "px-2.5 sm:px-3 py-1 text-[13px] sm:text-[15px] leading-[20px] sm:leading-[22px] font-semibold rounded-full transition-all",
                 locale === "KO"
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground",
@@ -120,7 +120,7 @@ export function SiteHeader() {
               type="button"
               onClick={() => setLocale("EN")}
               className={cn(
-                "px-3 py-1 text-[15px] leading-[22px] font-semibold rounded-full transition-all",
+                "px-2.5 sm:px-3 py-1 text-[13px] sm:text-[15px] leading-[20px] sm:leading-[22px] font-semibold rounded-full transition-all",
                 locale === "EN"
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground",
