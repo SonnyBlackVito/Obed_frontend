@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { useGsap, gsap } from "@/hooks/use-gsap"
+import { useRef } from "react";
+import { useGsap, gsap } from "@/hooks/use-gsap";
 
 type Slice = {
-  label: string
-  value: number
-  color: string
-  description: string
-}
+  label: string;
+  value: number;
+  color: string;
+  description: string;
+};
 
 const SLICES: Slice[] = [
   {
@@ -29,10 +29,10 @@ const SLICES: Slice[] = [
     color: "#6b7280",
     description: "Coins are never used below the announced Stay Price.",
   },
-]
+];
 
 export function TokenSupply() {
-  const rootRef = useRef<HTMLElement | null>(null)
+  const rootRef = useRef<HTMLElement | null>(null);
 
   useGsap(() => {
     gsap.from("[data-supply='text'] > *", {
@@ -42,11 +42,11 @@ export function TokenSupply() {
       stagger: 0.1,
       ease: "power3.out",
       scrollTrigger: { trigger: rootRef.current, start: "top 75%" },
-    })
+    });
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: "[data-supply='chart']", start: "top 80%" },
-    })
+    });
     tl.from("[data-supply='chart']", {
       scale: 0.92,
       opacity: 0,
@@ -69,8 +69,8 @@ export function TokenSupply() {
         "[data-supply='center']",
         { opacity: 0, scale: 0.7, duration: 0.5, ease: "power2.out" },
         "-=0.2",
-      )
-  }, [])
+      );
+  }, []);
 
   return (
     <section
@@ -104,7 +104,10 @@ export function TokenSupply() {
         >
           {/* small top divider */}
           <div className="flex justify-center">
-            <span className="block h-[3px] w-12 rounded-full bg-primary" aria-hidden />
+            <span
+              className="block h-[3px] w-12 rounded-full bg-primary"
+              aria-hidden
+            />
           </div>
 
           <div className="mt-5 text-center">
@@ -114,7 +117,9 @@ export function TokenSupply() {
             <h2 className="mt-6 text-4xl md:text-5xl font-bold text-foreground text-balance">
               Big title
             </h2>
-            <p className="mt-4 text-muted-foreground text-base md:text-lg">bodytext</p>
+            <p className="mt-4 text-muted-foreground text-base md:text-lg">
+              bodytext
+            </p>
           </div>
 
           <ul className="mt-10 space-y-7">
@@ -122,14 +127,16 @@ export function TokenSupply() {
               <li key={s.label} className="flex items-start gap-4">
                 <span
                   aria-hidden
-                  className="mt-1 inline-block w-1.5 h-7 rounded-full flex-shrink-0"
+                  className="mt-1 inline-block w-1.5 h-7 rounded-full shrink-0"
                   style={{
                     backgroundColor: s.color,
                     boxShadow: `0 0 12px ${s.color}80`,
                   }}
                 />
                 <div className="flex-1">
-                  <div className="text-foreground font-semibold text-base">{s.label}</div>
+                  <div className="text-foreground font-semibold text-base">
+                    {s.label}
+                  </div>
                   <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                     {s.description}
                   </p>
@@ -160,7 +167,7 @@ export function TokenSupply() {
                   className="relative flex items-start justify-start p-5 md:p-6"
                   style={{
                     height: `${(25 / 60) * 100}%`,
-                    backgroundColor: "#00b2ff",
+                    backgroundColor: "#0AF",
                   }}
                 >
                   <span className="text-2xl md:text-3xl font-bold text-foreground">
@@ -173,7 +180,7 @@ export function TokenSupply() {
                   className="relative flex items-end justify-start p-5 md:p-6"
                   style={{
                     height: `${(35 / 60) * 100}%`,
-                    backgroundColor: "#6b7280",
+                    backgroundColor: "#555A64",
                   }}
                 >
                   <span className="text-2xl md:text-3xl font-bold text-foreground">
@@ -185,7 +192,7 @@ export function TokenSupply() {
               <div
                 data-supply="slice"
                 className="relative flex items-center justify-end p-5 md:p-6"
-                style={{ width: "40%", backgroundColor: "#2563eb" }}
+                style={{ width: "40%", backgroundColor: "#377BCF" }}
               >
                 <span className="text-2xl md:text-3xl font-bold text-foreground">
                   40<span className="text-base md:text-lg align-top">%</span>
@@ -198,11 +205,11 @@ export function TokenSupply() {
               data-supply="center"
               className="absolute inset-0 grid place-items-center pointer-events-none"
             >
-              <div className="bg-background/95 rounded-2xl px-8 py-7 md:px-10 md:py-8 text-center shadow-2xl border border-border/50">
-                <div className="text-[10px] md:text-xs tracking-[0.3em] text-muted-foreground font-medium">
+              <div className="bg-background mx-auto justify-center flex flex-col w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[220px] md:h-[220px] lg:w-[260px] lg:h-[260px] rounded-xl md:rounded-2xl px-4 py-4 sm:px-6 sm:py-5 md:px-8 md:py-7 lg:px-10 lg:py-8 text-center shadow-2xl border border-border/50">
+                <div className="text-[8px] sm:text-[10px] md:text-xs lg:text-xl font-normal text-[#8B8BA2]  whitespace-nowrap">
                   TOTAL SUPPLY
                 </div>
-                <div className="mt-2 text-2xl md:text-3xl font-bold text-foreground">
+                <div className="mt-1 sm:mt-2 font-inter text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-foreground whitespace-nowrap">
                   1.0 Billion
                 </div>
               </div>
@@ -211,5 +218,5 @@ export function TokenSupply() {
         </div>
       </div>
     </section>
-  )
+  );
 }
