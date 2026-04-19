@@ -170,23 +170,41 @@ export const translations = {
 
     // ── Token Supply ──
     tokenSupply: {
-      sectionLabel: "TOKENOMICS",
-      heading: "Big title",
-      description: "bodytext",
+      sectionLabel: "TOKEN ALLOCATION",
+      heading: "Token Supply Distribution",
+      description: "1 billion OBED Coins allocated across six key areas to ensure sustainable growth and ecosystem stability.",
       totalSupply: "TOTAL SUPPLY",
       totalValue: "1.0 Billion",
       slices: [
         {
-          label: "25% Title",
-          description: "Coins are never used below the announced Stay Price.",
+          label: "Ecosystem & Mall Operations",
+          value: 20,
+          description: "Funds allocated for ecosystem operations, e-commerce mall, and platform services.",
         },
         {
-          label: "40% Title",
-          description: "Coins are never used below the announced Stay Price.",
+          label: "Hospital Network Operations",
+          value: 30,
+          description: "Supports 250+ partner dermatology clinics and healthcare network integration.",
         },
         {
-          label: "35% Title",
-          description: "Coins are never used below the announced Stay Price.",
+          label: "Team & Advisors",
+          value: 15,
+          description: "Reserved for the founding team and strategic advisors with vesting schedules.",
+        },
+        {
+          label: "Investors (Private/Public)",
+          value: 20,
+          description: "Allocated for private and public investors who support OBED Coin's growth.",
+        },
+        {
+          label: "Marketing & Partners",
+          value: 10,
+          description: "Used for marketing campaigns, partnerships, and community growth initiatives.",
+        },
+        {
+          label: "Reserve Fund",
+          value: 5,
+          description: "Maintained as a reserve fund for Stay Price stabilization and emergency use.",
         },
       ],
     },
@@ -445,23 +463,41 @@ export const translations = {
 
     // ── Token Supply ──
     tokenSupply: {
-      sectionLabel: "토크노믹스",
-      heading: "큰 제목",
-      description: "본문 텍스트",
+      sectionLabel: "토큰 배분",
+      heading: "토큰 공급 분배",
+      description: "10억 OBED 코인이 지속 가능한 성장과 생태계 안정을 위해 6개 핵심 영역에 배분됩니다.",
       totalSupply: "총 공급량",
       totalValue: "10억",
       slices: [
         {
-          label: "25% 제목",
-          description: "코인은 공시된 스테이 가격 이하로 사용되지 않습니다.",
+          label: "생태계 & 몰 운영",
+          value: 20,
+          description: "생태계 운영, 전자상거래 몰, 플랫폼 서비스를 위한 자금.",
         },
         {
-          label: "40% 제목",
-          description: "코인은 공시된 스테이 가격 이하로 사용되지 않습니다.",
+          label: "병원 네트워크 운영",
+          value: 30,
+          description: "250+ 파트너 피부과 클리닉 및 의료 네트워크 통합 지원.",
         },
         {
-          label: "35% 제목",
-          description: "코인은 공시된 스테이 가격 이하로 사용되지 않습니다.",
+          label: "팀 & 어드바이저",
+          value: 15,
+          description: "베스팅 일정에 따라 창립팀 및 전략 어드바이저에게 배정.",
+        },
+        {
+          label: "투자자 (프라이빗/퍼블릭)",
+          value: 20,
+          description: "OBED 코인 성장을 지원하는 프라이빗 및 퍼블릭 투자자에게 배분.",
+        },
+        {
+          label: "마케팅 & 파트너",
+          value: 10,
+          description: "마케팅 캠페인, 파트너십, 커뮤니티 성장 이니셔티브에 사용.",
+        },
+        {
+          label: "준비금",
+          value: 5,
+          description: "스테이 가격 안정화 및 비상 운용을 위한 준비금으로 유지.",
         },
       ],
     },
