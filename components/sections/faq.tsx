@@ -50,9 +50,7 @@ export function FAQ() {
           <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
             {t.faq.heading}
           </h2>
-          <p className="mt-4 text-muted-foreground">
-            {t.faq.description}
-          </p>
+          <p className="mt-4 text-muted-foreground">{t.faq.description}</p>
         </div>
 
         <div data-faq="list" className="mt-10 space-y-3">
@@ -129,7 +127,7 @@ export function FAQ() {
             </div>
           </div>
           <a
-            href="https://t.me/OBED_Coin"
+            href="https://t.me/obedworld"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-glow-cyan transition-shadow"
