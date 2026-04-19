@@ -45,14 +45,16 @@ export function Whitepaper() {
 
         <div data-wp="cards" className="mt-12 grid md:grid-cols-2 gap-5">
           <PaperCard
-            lang="Korean · 한국어"
+            lang="English · 영어"
             title="OBED Whitepaper"
-            meta="OBED Whitepaper KOR v1 · PDF"
+            meta="OBED_whitepaper_en_0318.pdf"
+            href="/OBED_whitepaper_en_0318.pdf"
           />
           <PaperCard
             lang="English · 영어"
-            title="OBED Business Proposal"
-            meta="OBED Whitepaper ENG · PDF"
+            title="Legal Opinion Letter"
+            meta="Legal_Opinion_Letter_obed.pdf"
+            href="/Legal_Opinion_Letter_obed.pdf"
           />
         </div>
       </div>
@@ -60,7 +62,7 @@ export function Whitepaper() {
   )
 }
 
-function PaperCard({ lang, title, meta }: { lang: string; title: string; meta: string }) {
+function PaperCard({ lang, title, meta, href }: { lang: string; title: string; meta: string; href: string }) {
   return (
     <div
       data-wp="card"
@@ -74,13 +76,16 @@ function PaperCard({ lang, title, meta }: { lang: string; title: string; meta: s
         <div className="mt-1 font-semibold text-foreground truncate">{title}</div>
         <div className="mt-1 text-xs text-muted-foreground truncate">{meta}</div>
       </div>
-      <button
-        type="button"
+      <a
+        href={href}
+        download={meta}
+        target="_blank"
+        rel="noopener noreferrer"
         className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:shadow-glow-cyan transition-shadow"
       >
         <DownloadIcon className="w-4 h-4" />
         Download
-      </button>
+      </a>
     </div>
   )
 }
