@@ -10,7 +10,12 @@ const NAV_LINKS = [
   { label: "Use Cases", href: "#use-cases" },
   { label: "Tokenomics", href: "#tokenomics" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Whitepaper", href: "#whitepaper" },
+  { 
+    label: "Whitepaper", 
+    href: "/OBED_whitepaper_en_0318.pdf",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  },
   { label: "Q&A", href: "#qa" },
 ];
 
@@ -62,8 +67,10 @@ export function SiteHeader() {
         <nav className="hidden lg:flex items-center gap-9">
           {NAV_LINKS.map((link) => (
             <a
-              key={link.href}
+              key={link.label}
               href={link.href}
+              target={link.target}
+              rel={link.rel}
               data-anim="nav-item"
               className="text-[15px] leading-[22px] font-semibold text-[#8B8BA2] hover:text-foreground transition-colors"
             >
