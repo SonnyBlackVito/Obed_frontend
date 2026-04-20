@@ -122,7 +122,7 @@ export const translations = {
       reviewTitle: "Stay Price Review",
       reviewDesc:
         "The committee reviews and publishes the Stay Price monthly based on market data.",
-      exchangeLabel: "글로벌 거래소",
+      exchangeLabel: "Global Exchange",
       exchangeTitle: "Exchange Listed",
       exchangeDesc:
         "Listed on a global cryptocurrency exchange — accessible to crypto users worldwide.",
