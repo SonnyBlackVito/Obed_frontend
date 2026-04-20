@@ -349,8 +349,8 @@ export const translations = {
       caseB: {
         label: "CASE B — 스테이 발동 · 시장가 < 스테이 가격",
         badge: "스테이 가격 적용 (소비자 보호)",
-        detail: "",
-        detailValue1: "예시)700 KRW",
+        detail: "예시) ",
+        detailValue1: "700 KRW",
         detailMid: "이더라도 → 스테이 가격 ",
         detailValue2: "1,000 KRW",
         detailEnd: " 적용",
